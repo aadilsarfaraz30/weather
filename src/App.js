@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React $ deploy learn
+          Learn React $ deploy learn install react
         </a>
       </header>
     </div>
