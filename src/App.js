@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { useDispatch } from 'react-redux';
+import { requestSuccessfull } from './redux/action/action';
 
 function App() {
+  const arr= ['hi','sgg','sdggd']
+
+  const dispatch = useDispatch(requestSuccessfull)
+  dispatch(requestSuccessfull(arr))
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,7 +22,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React $ deploy learn install react added more thing
+          Learn React $ deploy change in dev
         </a>
       </header>
     </div>
