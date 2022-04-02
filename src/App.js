@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import { requestSuccessfull } from './redux/action/action';
+import WeatherFromCoordinates from './fetchData/WeatherFromCoordinates';
 
 function App() {
-  const arr= ['hi','sgg','sdggd']
+  // const arr= ['hi','sgg','sdggd']
 
-  const dispatch = useDispatch(requestSuccessfull)
-  dispatch(requestSuccessfull(arr))
+  // const dispatch = useDispatch(requestSuccessfull)
+  // dispatch(requestSuccessfull(arr))
 
   return (
     <div className="App">
@@ -25,6 +26,7 @@ function App() {
           Learn React $ deploy change in dev
         </a>
       </header>
+      <WeatherFromCoordinates/>
     </div>
   );
 }
