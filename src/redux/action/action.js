@@ -1,4 +1,5 @@
 import { ActionTypes } from "../constant";
+import { url } from '../../url'
 
 export const requestData = () => {
   return {
@@ -23,7 +24,7 @@ export const fetchDataFromCoordinates = (lat, lon) => {
   return (dispatch) => {
       dispatch(requestData())
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=795d4fdd89c3e705da253a9f1bb1d983`
+      `${url.base}/weather?lat=${lat}&lon=${lon}&units=metric&appid=${url.key}`
     ).then((data) => {
       data.json().then(data => {
           console.log(data)
@@ -34,3 +35,19 @@ export const fetchDataFromCoordinates = (lat, lon) => {
     });
   };
 };
+
+export const fetchDataFromCity = (city) => {
+    return (dispatch) => {
+        dispatch(requestData())
+        fetch(
+            `${url.base}/weather?q=${city}&units=metric&appid=${url.key}`
+        ).then((data) => {
+            data.json().then(data => {
+                console.log(data)
+                dispatch(requestSuccessfull(data))
+            })
+          }).catch(err => {
+              dispatch(requestFailed(err))
+          });
+    }
+}
