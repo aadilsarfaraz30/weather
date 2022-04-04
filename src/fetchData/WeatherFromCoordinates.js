@@ -11,16 +11,16 @@ const getPosition = () => {
       };
 
     useEffect(()=>{
-        let subscribe = true;
+        // let subscribe = true;
         getPosition().then((position) => {
-          if (subscribe){
+          // if (subscribe){
             dispatch( fetchDataFromCoordinates(
               position.coords.latitude,
               position.coords.longitude,
             ))
-          }
+          // }
          }).catch(err=> console.log(err));
-         return () => {subscribe=false}
+        //  return () => {subscribe=false}
     },[])
 
   return (

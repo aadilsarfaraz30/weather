@@ -27,14 +27,26 @@ export const requestCity = (data) => {
   }
 }
 
+export const coordinates = (data) => {
+  return {
+    type: ActionTypes.COORDINATES,
+    payload: data
+  }
+}
+
 export const fetchDataFromCoordinates = (lat, lon) => {
   return (dispatch) => {
     dispatch(requestData());
     fetch(
-      `${url.base}/weather?lat=${lat}&lon=${lon}&units=metric&appid=${url.key}`
-    )
+      // `${url.base}/weather?lat=${lat}&lon=${lon}&units=metric&appid=${url.key}`
+      `${url.base}/onecall?lat=${lat}&lon=${lon}&appid=${url.key}`
+      )
       .then((response) => response.json())
-      .then((data) => dispatch(requestSuccessfull(data)));
+      .then((data) => {
+        dispatch(requestSuccessfull(data))
+        dispatch(coordinates(data.coord))
+      })
+      .catch(err => {dispatch(requestFailed(err))})
   };
 };
 export const fetchDataFromCity = (city) => {
@@ -43,7 +55,11 @@ export const fetchDataFromCity = (city) => {
       dispatch(requestData());
       fetch(`${url.base}/weather?q=${city}&units=metric&appid=${url.key}`)
         .then((response) => response.json())
-        .then((data) => dispatch(requestSuccessfull(data)));
+        .then((data) => {
+          dispatch(requestSuccessfull(data))
+          dispatch(coordinates(data.coord))
+        })
+        .catch(err => {dispatch(requestFailed(err))})
     }
   };
 };
