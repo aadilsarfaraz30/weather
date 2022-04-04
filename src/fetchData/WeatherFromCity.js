@@ -9,9 +9,9 @@ const WeatherFromCity = () => {
 
   useEffect(() => {
     dispatch(fetchDataFromCity(cityName));
-  }, [cityName]);
+  }, [cityName, dispatch]);
   
-  return <div>WeatherFromCity {cityName}</div>;
+  return <div>WeatherFromCity{cityName}</div>;
 };
 
 export default WeatherFromCity;
