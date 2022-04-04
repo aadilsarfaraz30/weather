@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <SearchContainer />
-      <DisplayComponent />
+      {/* <DisplayComponent /> */}
     </div>
   );
 }
