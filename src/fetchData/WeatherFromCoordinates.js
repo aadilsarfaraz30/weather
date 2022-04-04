@@ -21,7 +21,7 @@ const getPosition = () => {
           // }
          }).catch(err=> console.log(err));
         //  return () => {subscribe=false}
-    },[])
+    },[dispatch])
 
   return (
     <div>WeatherFromCoordinates</div>
