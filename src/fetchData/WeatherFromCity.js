@@ -6,6 +6,9 @@ const WeatherFromCity = () => {
   const dispatch = useDispatch(fetchDataFromCity);
 
   const cityName = useSelector((state) => state.cityData.city);
+  const data = useSelector(state => state.weatherData.data)
+
+  console.log(data)
 
   useEffect(() => {
     dispatch(fetchDataFromCity(cityName));
