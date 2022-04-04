@@ -24,7 +24,7 @@ const getDataReducer = (state=initialState,{type, payload}) => {
                 ...state,
                 loading: false,
                 error: payload
-            }    
+            }
         default :
         return { state}    
     }
