@@ -34,6 +34,13 @@ export const coordinates = (data) => {
   };
 };
 
+export const backToHome = (data) => {
+  return {
+    type: ActionTypes.BACK_TO_HOME,
+    payload: data
+  }
+}
+
 export const fetchDataFromCoordinates = (lat, lon) => {
   return (dispatch) => {
     dispatch(requestData());

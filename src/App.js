@@ -1,15 +1,20 @@
 import "./App.css";
 import SearchContainer from "./container/SearchContainer";
-import DisplayComponent from "./component/DisplayComponent";
+import AppBarContainer from "./container/AppBarContainer";
+import { Stack } from "@mui/material";
+import DisplayContainer from "./container/DisplayContainer";
 
 function App() {
   return (
     <div className="App">
-      <h1>hi</h1>
+      <Stack spacing={4} sx={{height: '100vh'}}>
+      <AppBarContainer/>
       <SearchContainer />
-      <DisplayComponent />
+      <DisplayContainer/> 
+    </Stack>
     </div>
   );
 }
 
 export default App;
+
