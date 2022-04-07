@@ -1,11 +1,13 @@
 import "./App.css";
 import SearchContainer from "./container/SearchContainer";
 import AppBarContainer from "./container/AppBarContainer";
-import { Stack } from "@mui/material";
+import { Stack, ThemeProvider } from "@mui/material";
 import DisplayContainer from "./container/DisplayContainer";
+import { theme } from "./styles/style";
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <Stack spacing={4} sx={{height: '100vh'}}>
       <AppBarContainer/>
@@ -13,6 +15,7 @@ function App() {
       <DisplayContainer/> 
     </Stack>
     </div>
+    </ThemeProvider>
   );
 }
 
