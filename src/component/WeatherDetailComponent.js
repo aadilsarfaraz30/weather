@@ -6,7 +6,7 @@ import { theme } from '../styles/style'
 const WeatherDetailComponent = () => {
   return (
     // <ThemeProvider theme={theme}>
-    <Stack sx={{background: 'yellow'}} spacing={4}>
+    <Container spacing={4} >
       <Location alignItems={{xs: 'center', sm: 'flex-start'}}>
         <Typography variant='h4' component='h5'>
           City, country 
@@ -28,12 +28,20 @@ const WeatherDetailComponent = () => {
           </Typography>
           </Box>
       </WeatherReport>
-    </Stack>
+    </Container>
     // </ThemeProvider>
   )
 }
 
 export default WeatherDetailComponent
+
+
+const Container = styled(Stack)(({theme}) => ({
+  [theme.breakpoints.down('sm')] : {
+    marginBottom: '30px'
+  }
+  ,background: 'yellow'
+}))
 
 const Location = styled(Stack)(()=>({
   padding: '15px'

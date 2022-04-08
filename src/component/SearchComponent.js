@@ -5,20 +5,18 @@ import SearchIcon from "@mui/icons-material/Search";
 import { alpha, InputBase, styled } from "@mui/material";
 
 const SearchComponent = ({ handleSubmit, search, handleOnChange }) => {
-
-  
-
   return (
-    <Search type='submit'>
+    <Search type="submit">
       <SearchIconWrapper onClick={handleSubmit}>
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
-        type='text'
+        type="text"
         value={search}
-        onChange={(e) =>{handleOnChange(e.target.value)}}
+        onChange={(e) => {
+          handleOnChange(e.target.value);
+        }}
         placeholder="Search…"
-        
       />
     </Search>
   );
@@ -47,12 +45,12 @@ const Search = styled("form")(({ theme }) => ({
 
 const SearchIconWrapper = styled("button")(({ theme }) => ({
   padding: theme.spacing(0, 1),
-  cursor: 'pointer',
-  border: 'none',
-  background: 'none',
-  "&:focus":{
-    outline: 'none'
-  }
+  cursor: "pointer",
+  border: "none",
+  background: "none",
+  "&:focus": {
+    outline: "none",
+  },
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({

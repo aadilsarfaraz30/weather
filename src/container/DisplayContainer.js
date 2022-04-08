@@ -1,28 +1,26 @@
 import { Box, Grid, Stack } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
 import ExtraDetailComponents from "../component/ExtraDetailComponents";
 import WeatherDetailComponent from "../component/WeatherDetailComponent";
 
 const DisplayContainer = () => {
+  
+  const currentForecast = useSelector(state=> state.weatherData.weatherData) 
+  
   return (
-    // <Stack
-    //   direction={{ xs: "column", sm: "row" }}
-    //   spacing={{ xs: 3, sm: 2, md: 4 }}
-    //   justifyContent={{xs: 'center' , sm: 'space-around'}}
-    //   alignItems='center'
-    // height={200}
-    // sx={{background: 'red'}}
-    // >
-    // </Stack>
-    <Box sx={{flexGrow: 1}}>
-    <Grid container>
-      <Grid item xs={12} sm={6} md={6}>
+   
+    <Box sx={{display: 'flex',justifyContent: 'center'}}>
+    <Box sx={{ background: 'red',width:'95%'}}>
+    <Grid  container columnSpacing={2} >
+      <Grid item xs={12} sm={6} md={6} alignSelf='center' justifySelf='self-start'>
         <WeatherDetailComponent />
       </Grid>
-      <Grid item xs={12} sm={6} md={6}>
+      <Grid item xs={12} sm={6} md={6} alignSelf='center' justifySelf='self-start' >
         <ExtraDetailComponents />
       </Grid>
     </Grid>
+    </Box>
     </Box>
   );
 };
