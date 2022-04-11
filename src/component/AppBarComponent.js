@@ -7,10 +7,10 @@ const AppBarComponent = ({ home }) => {
     <ThemeProvider theme={theme}>
       <Container maxWidth="xl" height="100px">
         <Typography
-          variant="h3"
+          variant="h4"
           noWrap
           component="div"
-          sx={{ m: 1.5 }}
+          sx={{ m: 1 }}
           onClick={home}
         >
           Weather App

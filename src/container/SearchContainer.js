@@ -8,12 +8,10 @@ const SearchContainer = () => {
   const [search, setSearch] = useState('');
 
   const dispatch = useDispatch(requestCity);
-  // const dispatchClicked = useDispatch(backToHome)
 
 
   const searchCity = (e) => {
     e.preventDefault();
-    // dispatchClicked(backToHome(false))
     dispatch(requestCity(search));
     setSearch('');
   };

@@ -3,7 +3,7 @@ import React from 'react'
 
 const ForecastComponent = ({day,weather,temp}) => {
   return (
-   <Cards>
+   <Cards elevation={4}>
        <Body>
     <Typography variant='subtitle2' component='span'>{day}</Typography>
     <Typography variant='subtitle2' component='span'>{weather}</Typography>
@@ -18,10 +18,6 @@ export default ForecastComponent
 const Cards = styled(Paper)(()=>({
     display: 'flex',
     flexDirection : 'column',
-    background: 'red',
-    // padding: '50px'
-    width: '250px',
-    // height: '180px'
 }))
 
 const Body = styled(Box)(()=>({
@@ -31,5 +27,4 @@ const Body = styled(Box)(()=>({
     justifyContent: 'space-around',
     width: '150px',
     height: '180px',
-    background: 'blue'
 }))

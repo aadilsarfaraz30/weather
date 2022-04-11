@@ -7,7 +7,6 @@ const ExtraDetailComponents = () => {
   const currentForecast = useSelector((state) => state.weatherData.data);
 
   const Container = styled(Paper)(({ theme }) => ({
-    background: "green",
     textAlign: "center",
     marginRight: "20px",
     [theme.breakpoints.down("md")]: {
@@ -20,7 +19,6 @@ const ExtraDetailComponents = () => {
       {currentForecast && (
         <Container
           sx={{
-            background: "green",
             textAlign: "center",
             marginRight: "20px",
             marginTop: "20px",
@@ -28,7 +26,7 @@ const ExtraDetailComponents = () => {
           elevation={3}
         >
           <Grid
-            sx={{ background: "yellow", paddingBottom: "20px" }}
+            sx={{ paddingBottom: "20px" }}
             justifyContent="center"
             container
             rowSpacing={{ xs: 2, md: 3 }}

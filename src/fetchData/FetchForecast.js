@@ -14,7 +14,7 @@ const FetchForecast = () => {
   },[coordinates,dispatch])
 
   return (
-    <div>FetchForecast</div>
+    <div></div>
   )
 }
 

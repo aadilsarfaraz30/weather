@@ -11,7 +11,7 @@ const DisplayContainer = () => {
   return (
     <>
       {!loading ? (
-        <Stack spacing={2} sx={{ background: "blue" }}>
+        <Stack spacing={2}>
           <CurrentForecastContainer />
           <ForecastContainer />
         </Stack>

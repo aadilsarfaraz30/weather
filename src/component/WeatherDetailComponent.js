@@ -82,7 +82,6 @@ const Container = styled(Stack)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     marginBottom: "30px",
   },
-  background: "yellow",
 }));
 
 const Location = styled(Stack)(() => ({

@@ -15,16 +15,13 @@ const ForecastContainer = () => {
 
   return (
     <Wrapper>
-      <Typography variant='h5' component='div'>Forecast</Typography>
+      <Typography ml={4} variant='h5' component='div'>Forecast</Typography>
       <Stack
         sx={{
           overflowX: "scroll",
-          // flexBasis: "100%",
           width: "100%",
-          background: "green",
         }}
-        p={2}
-        m={1}
+          p={2}
         direction="row"
         spacing={3}
         justifyContent="space-between"
@@ -51,8 +48,4 @@ export default ForecastContainer;
 
 const Wrapper = styled(Box)(() => ({
   overflowX: "scroll",
-  
-  // background: "red",
-  // width: "100%",
-  // flexBasis: '100%',
 }));
