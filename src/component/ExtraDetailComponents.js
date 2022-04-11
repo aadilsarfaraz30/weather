@@ -1,11 +1,12 @@
 import React from "react";
-import { Paper, Box, Grid, Stack } from "@mui/material";
+import { Paper, Box, Grid, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useSelector } from "react-redux";
 
 const ExtraDetailComponents = () => {
-  const Container = styled(Paper)(({theme}) => ({
+  const currentForecast = useSelector((state) => state.weatherData.data);
+
+  const Container = styled(Paper)(({ theme }) => ({
     background: "green",
     textAlign: "center",
     marginRight: "20px",
@@ -13,55 +14,78 @@ const ExtraDetailComponents = () => {
       margin: "0",
     },
   }));
+
   return (
-    <Container
-      sx={{
-        background: "green",
-        textAlign: "center",
-        marginRight: "20px",
-        marginTop: "20px",
-      }}
-      elevation={3}
-    >
-      <Grid
-        sx={{ background: "yellow", paddingBottom: "20px" }}
-        justifyContent="center"
-        container
-        rowSpacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 12, md: 12 }}
-      >
-        {Array.from(Array(6)).map((_, index) => (
-          <Grid item xs={2} sm={4} md={4} key={index}>
-            <Box>xs=2</Box>
-            <Box>xs=3</Box>
+    <>
+      {currentForecast && (
+        <Container
+          sx={{
+            background: "green",
+            textAlign: "center",
+            marginRight: "20px",
+            marginTop: "20px",
+          }}
+          elevation={3}
+        >
+          <Grid
+            sx={{ background: "yellow", paddingBottom: "20px" }}
+            justifyContent="center"
+            container
+            rowSpacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 4, sm: 12, md: 12 }}
+          >
+            <Grid item xs={2} sm={4} md={4}>
+              <Typography variant="subtitle1" component="div">
+                {Math.floor(currentForecast.main.temp_max)}&deg;
+              </Typography>
+              <Typography variant="subtitle1" component="div">
+                High
+              </Typography>
+            </Grid>
+            <Grid item xs={2} sm={4} md={4}>
+              <Typography variant="subtitle1" component="div">
+                {currentForecast.wind.speed}mph
+              </Typography>
+              <Typography variant="subtitle1" component="div">
+                Wind
+              </Typography>{" "}
+            </Grid>
+            <Grid item xs={2} sm={4} md={4}>
+              <Typography variant="subtitle1" component="div">
+                {currentForecast.main.pressure}hpa
+              </Typography>
+              <Typography variant="subtitle1" component="div">
+                Pressure
+              </Typography>
+            </Grid>
+            <Grid item xs={2} sm={4} md={4}>
+              <Typography variant="subtitle1" component="div">
+                {Math.floor(currentForecast.main.temp_min)}&deg;
+              </Typography>
+              <Typography variant="subtitle1" component="div">
+                Low
+              </Typography>
+            </Grid>
+            <Grid item xs={2} sm={4} md={4}>
+              <Typography variant="subtitle1" component="div">
+                {Math.floor(currentForecast.main.feels_like)}&deg;
+              </Typography>
+              <Typography variant="subtitle1" component="div">
+                Feels Like
+              </Typography>
+            </Grid>
+            <Grid item xs={2} sm={4} md={4}>
+              <Typography variant="subtitle1" component="div">
+                {currentForecast.main.humidity}%
+              </Typography>
+              <Typography variant="subtitle1" component="div">
+                Humidity
+              </Typography>
+            </Grid>
           </Grid>
-        ))}
-        {/* <Grid item xs={2} sm={4} md={4}>
-            <Box>xs=2</Box>
-            <Box>xs=3</Box>
-      </Grid>
-      <Grid item xs={2} sm={4} md={4}>
-            <Box>xs=2</Box>
-            <Box>xs=3</Box>
-      </Grid>
-      <Grid item xs={2} sm={4} md={4}>
-            <Box>xs=2</Box>
-            <Box>xs=3</Box>
-      </Grid>
-      <Grid item xs={2} sm={4} md={4}>
-            <Box>xs=2</Box>
-            <Box>xs=3</Box>
-      </Grid>
-      <Grid item xs={2} sm={4} md={4}>
-            <Box>xs=2</Box>
-            <Box>xs=3</Box>
-      </Grid>
-      <Grid item xs={2} sm={4} md={4}>
-            <Box>xs=2</Box>
-            <Box>xs=3</Box>
-      </Grid> */}
-      </Grid>
-    </Container>
+        </Container>
+      )}
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import AppBarComponent from '../component/AppBarComponent'
+import FetchForecast from '../fetchData/FetchForecast'
 import WeatherFromCity from '../fetchData/WeatherFromCity'
 import WeatherFromCoordinates from '../fetchData/WeatherFromCoordinates'
 import { requestCity } from '../redux/action/action'
@@ -18,6 +19,7 @@ const AppBarContainer = () => {
     <div>
         <AppBarComponent home={home} cityName={cityName}/>
         {!cityName ? <WeatherFromCoordinates/> : <WeatherFromCity /> }
+        <FetchForecast/>
     </div>
   )
 }

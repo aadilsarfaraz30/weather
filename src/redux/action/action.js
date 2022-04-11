@@ -34,9 +34,9 @@ export const coordinates = (data) => {
   };
 };
 
-export const backToHome = (data) => {
+export const forecast = (data) => {
   return {
-    type: ActionTypes.BACK_TO_HOME,
+    type: ActionTypes.REQUEST_FORECAST,
     payload: data
   }
 }
@@ -59,8 +59,25 @@ export const fetchDataFromCoordinates = (lat, lon) => {
   };
 };
 
+export const fetchForecastData = (lat, lon) => {
+  return (dispatch) => {
+    // dispatch(requestData());
+    fetch(
+      // `${url.base}/weather?lat=${lat}&lon=${lon}&units=metric&appid=${url.key}`
+      `${url.base}/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${url.key}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(forecast(data.daily));
+      })
+      .catch((err) => {
+        dispatch(requestFailed(err));
+      });
+  };
+};
+
 export const fetchDataFromCity = (city) => {
-  return async (dispatch) => {
+  return (dispatch) => {
     if (city) {
       dispatch(requestData());
       fetch(`${url.base}/weather?q=${city}&units=metric&appid=${url.key}`)
