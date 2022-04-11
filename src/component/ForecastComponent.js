@@ -3,7 +3,7 @@ import React from 'react'
 
 const ForecastComponent = ({day,weather,temp}) => {
   return (
-   <Cards elevation={4}>
+   <Cards elevation={5}>
        <Body>
     <Typography variant='subtitle2' component='span'>{day}</Typography>
     <Typography variant='subtitle2' component='span'>{weather}</Typography>

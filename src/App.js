@@ -8,26 +8,17 @@ import { useSelector } from "react-redux";
 import LoadingComponent from "./component/LoadingComponent";
 
 function App() {
-
-  const loading = useSelector(state=> state.weatherData.loading)
+  const loading = useSelector((state) => state.weatherData.loading);
   return (
     <ThemeProvider theme={theme}>
-    <div className="App">
-      
-      <Stack spacing={4} sx={{height: '100vh'}}>
-      <AppBarContainer/>
-      {!loading ? 
-      <>
-      <SearchContainer />
-      <DisplayContainer/>
-      </>
-      : <LoadingComponent/>} 
-      
-    </Stack>
-    </div>
+      <div className="App">
+        <Stack spacing={2.3} sx={{ height: "100vh" }}>
+          <AppBarContainer />
+          <DisplayContainer />
+        </Stack>
+      </div>
     </ThemeProvider>
   );
 }
 
 export default App;
-

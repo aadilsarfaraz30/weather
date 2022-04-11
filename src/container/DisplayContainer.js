@@ -1,23 +1,23 @@
 import { Stack } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import LoadingComponent from "../component/LoadingComponent";
 import CurrentForecastContainer from "./CurrentForecastContainer";
 import ForecastContainer from "./ForecastContainer";
+import SearchContainer from "./SearchContainer";
 
 const DisplayContainer = () => {
-  const loading = useSelector((state) => state.weatherData.loading);
+  const data = useSelector((state) => state.weatherData);
 
-  console.log(loading);
   return (
     <>
-      {/* {!loading ? ( */}
+        {!data.loading ? 
         <Stack spacing={2}>
+        <SearchContainer />
           <CurrentForecastContainer />
-          <ForecastContainer />
-        </Stack>
-      {/* ) : (
-        <p>loading</p>
-      )} */}
+         {data.forecast &&  <ForecastContainer />}
+        </Stack>  
+       : <LoadingComponent/>}
     </>
   );
 };
