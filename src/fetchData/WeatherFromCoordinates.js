@@ -1,4 +1,3 @@
-import { Paper } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDataFromCoordinates } from "../redux/action/action";

@@ -1,8 +1,6 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
-import { alpha, InputBase, styled } from "@mui/material";
+import { InputBase, styled } from "@mui/material";
 
 const SearchComponent = ({ handleSubmit, search, handleOnChange }) => {
   return (

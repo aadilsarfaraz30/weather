@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import SearchComponent from "../component/SearchComponent";
-import { backToHome, requestCity } from "../redux/action/action";
+import { requestCity } from "../redux/action/action";
 import { Box } from '@mui/material' 
 
 const SearchContainer = () => {

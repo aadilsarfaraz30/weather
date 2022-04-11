@@ -1,9 +1,7 @@
-import { Stack, styled, ThemeProvider, Typography } from "@mui/material";
+import { Stack, styled, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useSelector } from "react-redux";
-import CurrentForecastContainer from "../container/CurrentForecastContainer";
-import { theme } from "../styles/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCloud,

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchForecastData, forecast } from '../redux/action/action'
+import { fetchForecastData } from '../redux/action/action'
 
 const FetchForecast = () => {
 
@@ -11,7 +11,7 @@ const FetchForecast = () => {
 
   useEffect(()=>{
     dispatch(fetchForecastData(coordinates.lat,coordinates.lon))
-  },[coordinates])
+  },[coordinates,dispatch])
 
   return (
     <div>FetchForecast</div>

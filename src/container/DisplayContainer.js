@@ -1,8 +1,6 @@
-import { Box, Grid, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
-import ExtraDetailComponents from "../component/ExtraDetailComponents";
-import WeatherDetailComponent from "../component/WeatherDetailComponent";
 import CurrentForecastContainer from "./CurrentForecastContainer";
 import ForecastContainer from "./ForecastContainer";
 
