@@ -16,13 +16,13 @@ function App() {
       
       <Stack spacing={4} sx={{height: '100vh'}}>
       <AppBarContainer/>
-      {/* {!loading ? 
+      {!loading ? 
       <>
       <SearchContainer />
       <DisplayContainer/>
       </>
-      : <p>loading</p>}  */}
-      <LoadingComponent/>
+      : <LoadingComponent/>} 
+      
     </Stack>
     </div>
     </ThemeProvider>
