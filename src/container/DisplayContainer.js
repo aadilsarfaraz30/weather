@@ -10,14 +10,14 @@ const DisplayContainer = () => {
   console.log(loading);
   return (
     <>
-      {!loading ? (
+      {/* {!loading ? ( */}
         <Stack spacing={2}>
           <CurrentForecastContainer />
           <ForecastContainer />
         </Stack>
-      ) : (
+      {/* ) : (
         <p>loading</p>
-      )}
+      )} */}
     </>
   );
 };
