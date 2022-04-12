@@ -19,7 +19,6 @@ const WeatherDetailComponent = () => {
   let weatherIcon = null;
 
   let main = currentForecast && currentForecast.weather[0].main;
-  console.log(main, "main");
   if (main === "Thunderstorm") {
     weatherIcon = <FontAwesomeIcon icon={faBolt} />;
   } else if (main === "Dribble") {

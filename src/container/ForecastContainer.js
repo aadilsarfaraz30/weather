@@ -11,7 +11,6 @@ import ForecastComponent from "../component/ForecastComponent";
 const ForecastContainer = () => {
   const forecast = useSelector((state) => state.weatherData.forecast);
 
-  console.log(forecast);
 
   return (
     <>

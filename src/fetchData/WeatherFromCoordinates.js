@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchDataFromCoordinates } from "../redux/action/action";
+import { useDispatch } from "react-redux";
+import { fetchDataFromCoordinates, requestFailed } from "../redux/action/action";
 
 const WeatherFromCoordinates = () => {
-  const data = useSelector((state) => state.weatherData.data);
   const dispatch = useDispatch(fetchDataFromCoordinates);
+  const dispatchError = useDispatch(requestFailed)
 
 
   const getPosition = () => {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      }
+      else{
+        alert("Please open your GPS")
+      }
     });
   };
 
@@ -23,10 +28,9 @@ const WeatherFromCoordinates = () => {
           )
           );
         })
-        .catch((err) => console.log(err));
-  }, [dispatch]);
+        .catch((err) => dispatchError(requestFailed(err)));
+  }, [dispatch,dispatchError]);
 
- console.log(data)  
   return (
     <div>
     </div>

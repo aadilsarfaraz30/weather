@@ -23,6 +23,7 @@ const getDataReducer = (state=initialState,{type, payload}) => {
         case ActionTypes.REQUEST_FORECAST:
             return{
                 ...state,
+                loading: false,
                 forecast: payload
             }        
         case ActionTypes.REQUEST_FAILED:
