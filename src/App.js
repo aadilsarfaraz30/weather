@@ -5,14 +5,21 @@ import DisplayContainer from "./container/DisplayContainer";
 import { theme } from "./styles/style";
 
 function App() {
+
+  if(navigator.geolocation.getCurrentPosition){
+    alert('GPS enabled')
+  }
+  else{
+    alert('GPS not enabled')
+  }
+
 return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        {navigator.geolocation.getCurrentPosition ? 
-        <Stack spacing={2.3} sx={{ height: "100vh" }}>
-        <AppBarContainer />
-        <DisplayContainer />
-      </Stack> : <p>Open your gps</p>}
+        {/* <Stack spacing={2.3} sx={{ height: "100vh" }}>
+          <AppBarContainer />
+          <DisplayContainer />
+        </Stack> */}
       </div>
     </ThemeProvider>
   );
