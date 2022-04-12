@@ -8,7 +8,7 @@ function App() {
 return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        {navigator.geolocation ? 
+        {navigator.geolocation.getCurrentPosition ? 
         <Stack spacing={2.3} sx={{ height: "100vh" }}>
         <AppBarContainer />
         <DisplayContainer />
