@@ -5,13 +5,14 @@ import DisplayContainer from "./container/DisplayContainer";
 import { theme } from "./styles/style";
 
 function App() {
-  return (
+return (
     <ThemeProvider theme={theme}>
       <div className="App">
+        {navigator.geolocation ? 
         <Stack spacing={2.3} sx={{ height: "100vh" }}>
-          <AppBarContainer />
-          <DisplayContainer />
-        </Stack>
+        <AppBarContainer />
+        <DisplayContainer />
+      </Stack> : alert('Open your GPS')}
       </div>
     </ThemeProvider>
   );
