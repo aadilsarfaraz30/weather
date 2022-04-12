@@ -12,7 +12,7 @@ return (
         <Stack spacing={2.3} sx={{ height: "100vh" }}>
         <AppBarContainer />
         <DisplayContainer />
-      </Stack> : alert('Open your GPS')}
+      </Stack> : <p>Open your gps</p>}
       </div>
     </ThemeProvider>
   );
