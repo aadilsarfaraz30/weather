@@ -43,19 +43,31 @@ export const forecast = (data) => {
 };
 
 export const fetchDataFromCoordinates = (lat, lon) => {
-  return (dispatch) => {
-    dispatch(requestData());
-    fetch(
+  return async (dispatch) => {
+    // dispatch(requestData());
+    // fetch(
+    //   `${url.base}/weather?lat=${lat}&lon=${lon}&units=metric&appid=${url.key}`
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     dispatch(coordinates(data.coord));
+    //     dispatch(requestSuccessfull(data));
+    //   })
+    //   .catch((err) => {
+    //     dispatch(requestFailed(err));
+    //   });
+    const response = await fetch(
       `${url.base}/weather?lat=${lat}&lon=${lon}&units=metric&appid=${url.key}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch(coordinates(data.coord));
-        dispatch(requestSuccessfull(data));
-      })
-      .catch((err) => {
-        dispatch(requestFailed(err));
-      });
+    );
+    console.log(response)
+    const data = await response.json();
+    if (response.status === 200) {
+      dispatch(coordinates(data.coord));
+      dispatch(requestSuccessfull(data));
+    }
+    else if(response.status === 400){
+      alert('check your connection or turn on your GPS')
+    }
   };
 };
 
