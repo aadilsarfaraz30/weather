@@ -65,7 +65,7 @@ export const fetchDataFromCoordinates = (lat, lon) => {
       dispatch(coordinates(data.coord));
       dispatch(requestSuccessfull(data));
     }
-    else if(response.status === 400){
+    else{
       alert('check your connection or turn on your GPS')
     }
   };
@@ -90,19 +90,34 @@ export const fetchForecastData = (lat, lon) => {
 };
 
 export const fetchDataFromCity = (city) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     // if (city) {
-    dispatch(requestData());
-    fetch(`${url.base}/weather?q=${city}&units=metric&appid=${url.key}`)
-      .then((response) => response.json())
-      .then((data) => {
+    // dispatch(requestData());
+    // fetch(`${url.base}/weather?q=${city}&units=metric&appid=${url.key}`)
+    //   .then((response) => console.log(response))
+    //   .then((data) => {
+    //     dispatch(coordinates(data.coord));
+    //     dispatch(requestSuccessfull(data));
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     dispatch(requestFailed(err));
+    //   });
+    // }
+    if(city) {
+      const response = await fetch(`${url.base}/weather?q=${city}&units=metric&appid=${url.key}`)
+    console.log(response)
+      const data = await response.json();
+      if (response.status === 200) {
         dispatch(coordinates(data.coord));
         dispatch(requestSuccessfull(data));
-      })
-      .catch((err) => {
-        console.log(err);
-        dispatch(requestFailed(err));
-      });
-    // }
+      }
+      else if(response.status === 404){
+        alert('search result not found')
+      }
+      else{
+        alert('check your connection or turn on your GPS')
+      }
+    }
   };
 };
