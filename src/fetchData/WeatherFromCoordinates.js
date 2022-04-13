@@ -16,16 +16,42 @@ const WeatherFromCoordinates = () => {
   };
 
   useEffect(() => {
-    getPosition()
-      .then((position) => {
-        dispatch(
-          fetchDataFromCoordinates(
-            position.coords.latitude,
-            position.coords.longitude
-          )
-        );
-      })
-      .catch((err) => dispatchError(requestFailed(err)));
+    if (navigator.geolocation) {
+      navigator.permissions.query({ name: "geolocation" }).then((result) => {
+        if (result.state === "granted") {
+          getPosition()
+            .then((position) => {
+              dispatch(
+                fetchDataFromCoordinates(
+                  position.coords.latitude,
+                  position.coords.longitude
+                )
+              );
+            })
+            .catch((err) => dispatchError(requestFailed(err)));
+        } else if (result.state === "prompt") {
+          getPosition()
+            .then((position) => {
+              dispatch(
+                fetchDataFromCoordinates(
+                  position.coords.latitude,
+                  position.coords.longitude
+                )
+              );
+            })
+            .catch((err) => dispatchError(requestFailed(err)));
+        }
+        else if(result.state === 'denied'){
+          alert('Enable your GPS')
+        }
+        result.onchange = function (){
+          console.log(result.state)
+        }
+      });
+    }
+    else{
+      alert('Sorry not available')
+    }
   }, [dispatch, dispatchError]);
 
   return <div></div>;
