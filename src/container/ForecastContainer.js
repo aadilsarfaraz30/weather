@@ -21,8 +21,8 @@ const ForecastContainer = () => {
           overflowX: "scroll",
           width: "100%",
         }}
-          p={2}
-          pb={1}
+          p={0.5}
+          // pb={1}
         direction="row"
         spacing={3}
         justifyContent="space-between"
@@ -52,4 +52,6 @@ const Wrapper = styled(Box)(() => ({
   // overflowX: "scroll",
   // background: 'red', 
   maxHeight: '230px',
+  padding: '20px',
+  marginRight: '20px'
 }));

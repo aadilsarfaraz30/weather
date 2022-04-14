@@ -38,7 +38,7 @@ const ForecastComponent = ({day,weather,temp}) => {
 
 
   return (
-   <Cards elevation={5}>
+   <Cards elevation={4}>
        <Body>
     <Typography variant='subtitle2' component='span'>{day}</Typography>
     <Icon>{weatherIcon}</Icon>
