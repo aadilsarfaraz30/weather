@@ -49,7 +49,7 @@ const ForecastContainer = () => {
 export default ForecastContainer;
 
 const Wrapper = styled(Box)(() => ({
-  overflowX: "scroll",
+  // overflowX: "scroll",
   // background: 'red', 
-  maxHeight: '230px'
+  maxHeight: '230px',
 }));

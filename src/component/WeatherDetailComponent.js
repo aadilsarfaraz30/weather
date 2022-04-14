@@ -35,6 +35,8 @@ const WeatherDetailComponent = () => {
     weatherIcon = <FontAwesomeIcon icon={faSmog} />;
   } else if (main === "Mist") {
     weatherIcon = <FontAwesomeIcon icon={faCloud} />;
+  }else {
+    weatherIcon = <FontAwesomeIcon icon={faCloud} />;
   }
 
   return (
