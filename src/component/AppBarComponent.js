@@ -10,7 +10,7 @@ const AppBarComponent = ({ home }) => {
           variant="h4"
           noWrap
           component="div"
-          sx={{ m: 1 }}
+          sx={{ m: 1,color: '#0E185F' ,fontWeight: '400'}}
           onClick={home}
         >
           Weather App

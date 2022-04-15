@@ -44,7 +44,7 @@ const WeatherDetailComponent = () => {
       {currentForecast && (
         <Container spacing={4}>
           <Location alignItems={{ xs: "center", sm: "flex-start" }}>
-            <Typography variant="h4" component="h5">
+            <Typography variant="h4" component="h5" sx={{fontWeight: '450'}}>
               {currentForecast.name + "," + currentForecast.sys.country}
             </Typography>
             <Typography variant="h6" component="div">
@@ -83,6 +83,8 @@ const Container = styled(Stack)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     marginBottom: "30px",
   },
+  color: '#06113C'
+
 }));
 
 const Location = styled(Stack)(() => ({

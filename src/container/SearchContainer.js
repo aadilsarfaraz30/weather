@@ -12,7 +12,9 @@ const SearchContainer = () => {
 
   const searchCity = (e) => {
     e.preventDefault();
-    dispatch(requestCity(search));
+    if(search !== ''){
+      dispatch(requestCity(search));
+    }
     setSearch('');
   };
 

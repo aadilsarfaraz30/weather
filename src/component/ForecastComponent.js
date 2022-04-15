@@ -38,11 +38,11 @@ const ForecastComponent = ({day,weather,temp}) => {
 
 
   return (
-   <Cards elevation={4}>
+   <Cards elevation={2}>
        <Body>
-    <Typography variant='subtitle2' component='span'>{day}</Typography>
+    <Typography variant='h6' component='span'>{day}</Typography>
     <Icon>{weatherIcon}</Icon>
-    <Typography variant='subtitle2' component='span'>{temp}&deg;</Typography>
+    <Typography variant='h6' component='span'>{temp}&deg;</Typography>
    </Body>
    </Cards>
   )
@@ -53,7 +53,9 @@ export default ForecastComponent
 const Cards = styled(Paper)(()=>({
     display: 'flex',
     flexDirection : 'column',
-    borderRadius: '10px'
+    borderRadius: '10px',
+    background: 'rgba(180, 200, 200,0.3)',
+    color: '#06113C',
 }))
 
 const Body = styled(Box)(()=>({

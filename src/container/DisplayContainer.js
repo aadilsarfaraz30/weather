@@ -1,21 +1,26 @@
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import LoadingComponent from "../component/LoadingComponent";
 import CurrentForecastContainer from "./CurrentForecastContainer";
 import ForecastContainer from "./ForecastContainer";
 import SearchContainer from "./SearchContainer";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const DisplayContainer = () => {
   const data = useSelector((state) => state.weatherData);
 
+  const media = useMediaQuery('(min-width: 600px)')  
+
   return (
     <>
         {!data.loading ? 
-        <Stack spacing={2}>
+        <Stack spacing={2} sx={{height: '100vh'}} justifyContent='space-between'>
         <SearchContainer />
-          <CurrentForecastContainer />
+         <Box sx={{height: '90vh',display: 'flex',flexDirection: 'column',justifyContent: media ? 'space-around' : 'space-between' }}>
+         {data.data ? <CurrentForecastContainer /> : alert('Please Enable your GPS or Check your internet connection')}
          {data.forecast &&  <ForecastContainer />}
+         </Box>
         </Stack>  
        : <LoadingComponent/>}
     </>
