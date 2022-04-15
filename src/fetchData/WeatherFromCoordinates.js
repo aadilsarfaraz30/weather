@@ -18,12 +18,17 @@ const WeatherFromCoordinates = () => {
   useEffect(() => {
     getPosition()
       .then((position) => {
-        dispatch(
-          fetchDataFromCoordinates(
-            position.coords.latitude,
-            position.coords.longitude
-          )
-          );
+        if(position){
+          dispatch(
+            fetchDataFromCoordinates(
+              position.coords.latitude,
+              position.coords.longitude
+            )
+            );
+        }
+        else{
+          alert("Enable your GPS")
+        }
         })
         .catch((err) => dispatchError(requestFailed(err)));
   }, [dispatch,dispatchError]);
