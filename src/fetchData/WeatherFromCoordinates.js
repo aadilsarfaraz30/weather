@@ -16,6 +16,7 @@ const WeatherFromCoordinates = () => {
   };
 
   useEffect(() => {
+    alert("Enable your GPS")
     getPosition()
       .then((position) => {
         if(position){
@@ -26,7 +27,6 @@ const WeatherFromCoordinates = () => {
             )
             );
         }
-      alert("Enable your GPS")
     })
         .catch((err) => dispatchError(requestFailed(err)));
   }, [dispatch,dispatchError]);
