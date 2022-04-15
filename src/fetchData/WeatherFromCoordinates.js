@@ -16,7 +16,6 @@ const WeatherFromCoordinates = () => {
   };
 
   useEffect(() => {
-    alert("Enable your GPS")
     getPosition()
       .then((position) => {
         if(position){
