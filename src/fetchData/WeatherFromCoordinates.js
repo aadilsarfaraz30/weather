@@ -26,10 +26,8 @@ const WeatherFromCoordinates = () => {
             )
             );
         }
-        else{
-          alert("Enable your GPS")
-        }
-        })
+      alert("Enable your GPS")
+    })
         .catch((err) => dispatchError(requestFailed(err)));
   }, [dispatch,dispatchError]);
 

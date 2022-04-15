@@ -18,7 +18,7 @@ const DisplayContainer = () => {
         <Stack spacing={2} sx={{height: '100vh'}} justifyContent='space-between'>
         <SearchContainer />
          <Box sx={{height: '90vh',display: 'flex',flexDirection: 'column',justifyContent: media ? 'space-around' : 'space-between' }}>
-         {data.data ? <CurrentForecastContainer /> : <p>Something went wrong </p>}
+         <CurrentForecastContainer />
          {data.forecast &&  <ForecastContainer />}
          </Box>
         </Stack>  
