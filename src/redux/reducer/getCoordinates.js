@@ -7,7 +7,7 @@ const initialState = {
 const getCoordinates = (state=initialState,{type,payload}) =>{
     switch(type){
         case ActionTypes.COORDINATES:
-            return {coods: payload}
+            return {coords: payload}
         default: return state;
     }
 }

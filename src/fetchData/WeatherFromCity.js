@@ -14,7 +14,7 @@ const WeatherFromCity = () => {
     dispatch(fetchDataFromCity(cityName));
   }, [cityName, dispatch]);
   
-  return <div>WeatherFromCity{cityName}</div>;
+  return <div></div>;
 };
 
 export default WeatherFromCity;

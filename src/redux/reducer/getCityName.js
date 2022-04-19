@@ -1,13 +1,15 @@
 import { ActionTypes } from "../constant";
 
 const initialState = {
-    city: ''
+    city: '',
+    // clicked: false
 }
 
 const getCityName = (state = initialState, {type,payload}) => {
     switch(type){
         case ActionTypes.REQUEST_CITY:
-            return {city: payload}
+            return {...state,city: payload}
+            
         default : 
         return state;
     }

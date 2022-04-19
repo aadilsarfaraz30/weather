@@ -4,6 +4,7 @@ const initialState = {
     loading:  false,
     data : [],
     error: null,
+    forecast: []
 }
 
 const getDataReducer = (state=initialState,{type, payload}) => {
@@ -18,7 +19,13 @@ const getDataReducer = (state=initialState,{type, payload}) => {
                 ...state,
                 loading: false,
                 data : payload
-            }    
+            }
+        case ActionTypes.REQUEST_FORECAST:
+            return{
+                ...state,
+                loading: false,
+                forecast: payload
+            }        
         case ActionTypes.REQUEST_FAILED:
             return {
                 ...state,
