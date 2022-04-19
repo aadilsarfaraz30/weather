@@ -37,7 +37,7 @@ const ExtraDetailComponents = () => {
           >
             <Grid item xs={2} sm={4} md={4}>
               <Typography variant="h6" component="div" >
-                {Math.floor(currentForecast.main.temp_max)}&deg;
+                {Math.floor(currentForecast.main.temp_max)}&deg; 
               </Typography>
               <Typography variant="subtitle1" component="div" sx={{fontWeight: '400'}}>
                 High temp
@@ -45,7 +45,7 @@ const ExtraDetailComponents = () => {
             </Grid>
             <Grid item xs={2} sm={4} md={4}>
               <Typography variant="h6" component="div">
-                {currentForecast.wind.speed}mph
+                {currentForecast.wind.speed} mph
               </Typography>
               <Typography variant="subtitle1" component="div" sx={{fontWeight: '400'}}>
                 Wind
@@ -53,7 +53,7 @@ const ExtraDetailComponents = () => {
             </Grid>
             <Grid item xs={2} sm={4} md={4}>
               <Typography variant="h6" component="div">
-                {currentForecast.main.pressure}hpa
+                {currentForecast.main.pressure} hpa
               </Typography>
               <Typography variant="subtitle1" component="div" sx={{fontWeight: '400'}}>
                 Pressure
